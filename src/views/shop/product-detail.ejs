@@ -1,0 +1,65 @@
+<%- include('../includes/head.ejs') %>
+    </head>
+
+    <body>
+        <%- include('../includes/navigation.ejs') %>
+            <main class="centered">
+                <hr>
+                <div id="carouselExampleControls" class="carousel slide"
+                    data-bs-ride="false">
+                    <div class="carousel-inner" style="background-color: grey">
+                        <div class="carousel-item active">
+                            <img src="/<%= product.imageUrl[0] %>"
+                                focusable="false" class="img-fluid">
+                            </img>
+                        </div>
+                        <% for (let i=1; i < product.imageUrl.length; i++) { %>
+                            <div class="carousel-item">
+                                <img src="/<%= product.imageUrl[i] %>"
+                                    focusable="false" class="img-fluid">
+                                </img>
+                            </div>
+                            <% } %>
+                                <% for (let i=0; i < product.videoUrl.length;
+                                    i++) { %>
+                                    <div class="carousel-item">
+                                        <video controls width="50%"
+                                            height="100%">
+                                            <source
+                                                src="/<%= product.videoUrl[i] %>">
+                                        </video>
+                                    </div>
+                                    <% } %>
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button"
+                    data-bs-target="#carouselExampleControls"
+                    data-bs-slide="prev">
+                    <i class="fa fa-chevron-left" aria-hidden="true"></i>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button"
+                    data-bs-target="#carouselExampleControls"
+                    data-bs-slide="next">
+                    <i class="fa fa-chevron-right" aria-hidden="true"></i>
+                    <span class="visually-hidden">Next</span>
+                </button>
+                </div>
+                <h2>
+                    Giá: <%= product.price %>
+                </h2>
+                <h4>
+                    Diện tích: <%= product.acreage %>
+                </h4>
+                <h4>
+                    Địa chỉ: <%= product.address %>
+                </h4>
+                <h4>
+                    Liên hệ: <%= user.tel %>
+                </h4>
+                <h4>
+                    Mô tả: <%= product.description %>
+                </h4>
+            </main>
+            <%- include('../includes/end.ejs') %>
+                <nav class="mobile-nav"></nav>
